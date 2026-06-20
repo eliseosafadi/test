@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Döner Palast – Frischer Döner</title>
+  <meta name="description" content="Der beste Döner der Stadt – täglich frisch zubereitet.">
+
+  <!-- Schriftart (leicht austauschbar: anderen Google-Font-Link einsetzen) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="header" id="header">
+    <div class="container nav">
+      <a href="#hero" class="logo" data-site-name>Döner Palast</a>
+
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#menu">Speisekarte</a>
+        <a href="#about">Über uns</a>
+        <a href="#hours">Öffnungszeiten</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <!-- Bild-Platzhalter: hier später ein Hintergrundbild via CSS einsetzen -->
+    <div class="hero-img-placeholder">🖼 Hero-Bild (z.B. saftiger Döner)</div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content reveal">
+      <h1 class="hero-title" data-site-name>Döner Palast</h1>
+      <p class="hero-slogan" data-slogan>Frisch. Saftig. Unwiderstehlich.</p>
+      <p class="hero-text" data-hero-text></p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">Speisekarte ansehen</a>
+        <a href="#contact" class="btn btn-outline" data-phone-link>Jetzt anrufen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SPEISEKARTE ============ -->
+  <section class="section" id="menu">
+    <div class="container">
+      <h2 class="section-title reveal">Unsere Speisekarte</h2>
+      <p class="section-subtitle reveal">Alles frisch zubereitet – guten Appetit!</p>
+      <!-- Menü wird aus config.js generiert -->
+      <div id="menuContainer"></div>
+    </div>
+  </section>
+
+  <!-- ============ ÜBER UNS ============ -->
+  <section class="section section-alt" id="about">
+    <div class="container about-grid">
+      <div class="about-img-placeholder reveal">🖼 Bild: Unser Laden / Team</div>
+      <div class="about-text reveal">
+        <h2 class="section-title left">Über uns</h2>
+        <p data-about-text></p>
+        <div class="features" id="featuresContainer"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÖFFNUNGSZEITEN ============ -->
+  <section class="section" id="hours">
+    <div class="container">
+      <h2 class="section-title reveal">Öffnungszeiten</h2>
+      <div class="hours-card reveal" id="hoursContainer"></div>
+    </div>
+  </section>
+
+  <!-- ============ KONTAKT ============ -->
+  <section class="section section-alt" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <h2 class="section-title left">Kontakt</h2>
+        <ul class="contact-list">
+          <li><span class="contact-icon">📍</span> <span data-address></span></li>
+          <li><span class="contact-icon">📞</span> <a data-phone-link></a></li>
+          <li><span class="contact-icon">✉️</span> <a data-email-link></a></li>
+        </ul>
+        <!-- Karten-Platzhalter: hier später eine Google-Maps-Einbettung einfügen -->
+        <div class="map-placeholder">🗺 Karte / Standort einbetten</div>
+      </div>
+
+      <div class="contact-form-wrap reveal">
+        <h3>Schreib uns eine Nachricht</h3>
+        <form id="contactForm" class="contact-form">
+          <input type="text" name="name" placeholder="Dein Name" required>
+          <input type="email" name="email" placeholder="Deine E-Mail" required>
+          <textarea name="message" rows="4" placeholder="Deine Nachricht" required></textarea>
+          <button type="submit" class="btn btn-primary">Nachricht senden</button>
+          <p class="form-success" id="formSuccess">Danke! Deine Nachricht ist angekommen. 🙌</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo" data-site-name>Döner Palast</div>
+        <p class="footer-slogan" data-slogan></p>
+      </div>
+      <div class="footer-social" id="footerSocial"></div>
+    </div>
+    <p class="copyright">© <span id="year"></span> <span data-site-name>Döner Palast</span>. Alle Rechte vorbehalten.</p>
+  </footer>
+
+  <!-- ============ CHAT-WIDGET (FAQ-Bot) ============ -->
+  <button class="chat-toggle" id="chatToggle" aria-label="Chat öffnen">💬</button>
+  <div class="chat-panel" id="chatPanel" aria-hidden="true">
+    <div class="chat-header">
+      <span>Fragen? Wir helfen! 🥙</span>
+      <button class="chat-close" id="chatClose" aria-label="Chat schließen">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-quick" id="chatQuick"></div>
+    <form class="chat-input" id="chatForm">
+      <input type="text" id="chatText" placeholder="Schreib deine Frage..." autocomplete="off">
+      <button type="submit" aria-label="Senden">➤</button>
+    </form>
+  </div>
+
+  <!-- Konfiguration zuerst, dann Logik -->
+  <script src="config.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
