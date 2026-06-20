@@ -5,68 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Döner Palast – Frischer Döner</title>
   <meta name="description" content="Der beste Döner der Stadt – täglich frisch zubereitet.">
-
-  <!-- Schriftart (leicht austauschbar: anderen Google-Font-Link einsetzen) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ============ HEADER / NAVIGATION ============ -->
+  <!-- ============ HEADER ============ -->
   <header class="header" id="header">
     <div class="container nav">
-      <a href="#hero" class="logo" data-site-name>Döner Palast</a>
-
+      <a href="#hero" class="logo"><span data-site-name>Döner Palast</span></a>
       <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-
       <nav class="nav-links" id="navLinks">
         <a href="#menu">Speisekarte</a>
+        <a href="#gallery">Galerie</a>
         <a href="#about">Über uns</a>
-        <a href="#hours">Öffnungszeiten</a>
         <a href="#contact">Kontakt</a>
+        <a href="#contact" class="nav-cta btn btn-primary">Jetzt anrufen</a>
       </nav>
     </div>
   </header>
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="hero">
-    <!-- Bild-Platzhalter: hier später ein Hintergrundbild via CSS einsetzen -->
-    <div class="hero-img-placeholder">🖼 Hero-Bild (z.B. saftiger Döner)</div>
+    <div class="hero-bg">
+      <div class="hero-bg-anim"></div>
+      <div class="hero-img-placeholder">🖼 Hero-Bild (z.B. Döner vom Spieß)</div>
+    </div>
     <div class="hero-overlay"></div>
-    <div class="container hero-content reveal">
-      <h1 class="hero-title" data-site-name>Döner Palast</h1>
-      <p class="hero-slogan" data-slogan>Frisch. Saftig. Unwiderstehlich.</p>
-      <p class="hero-text" data-hero-text></p>
-      <div class="hero-buttons">
-        <a href="#menu" class="btn btn-primary">Speisekarte ansehen</a>
-        <a href="#contact" class="btn btn-outline" data-phone-link>Jetzt anrufen</a>
+    <div class="container hero-content">
+      <div class="hero-badge reveal-fast">⭐ Seit 2009 · Halal zertifiziert</div>
+      <h1 class="hero-title reveal-fast" data-site-name>Döner Palast</h1>
+      <p class="hero-slogan reveal-fast" data-slogan>Frisch. Saftig. Unwiderstehlich.</p>
+      <p class="hero-text reveal-fast" data-hero-text></p>
+      <div class="hero-buttons reveal-fast">
+        <a href="#menu" class="btn btn-primary btn-lg">Speisekarte ansehen</a>
+        <a href="#contact" class="btn btn-outline btn-lg" data-phone-link>Jetzt anrufen</a>
       </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ============ STATISTIKEN ============ -->
+  <section class="stats-section" id="stats">
+    <div class="container">
+      <div class="stats-grid" id="statsGrid"></div>
     </div>
   </section>
 
   <!-- ============ SPEISEKARTE ============ -->
   <section class="section" id="menu">
     <div class="container">
-      <h2 class="section-title reveal">Unsere Speisekarte</h2>
-      <p class="section-subtitle reveal">Alles frisch zubereitet – guten Appetit!</p>
-      <!-- Menü wird aus config.js generiert -->
-      <div id="menuContainer"></div>
+      <div class="section-header reveal">
+        <h2 class="section-title">Unsere Speisekarte</h2>
+        <p class="section-subtitle">Alles täglich frisch zubereitet — guten Appetit!</p>
+      </div>
+      <div class="menu-tabs" id="menuTabs"></div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ GALERIE ============ -->
+  <section class="section section-alt" id="gallery">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Einblicke</h2>
+        <p class="section-subtitle">Frisch, echt und mit Liebe gemacht.</p>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
     </div>
   </section>
 
   <!-- ============ ÜBER UNS ============ -->
-  <section class="section section-alt" id="about">
+  <section class="section" id="about">
     <div class="container about-grid">
-      <div class="about-img-placeholder reveal">🖼 Bild: Unser Laden / Team</div>
+      <div class="about-img-wrap reveal">
+        <div class="about-img-placeholder">🖼 Bild: Unser Laden / Team</div>
+        <div class="halal-badge reveal">
+          <span class="halal-icon">✅</span>
+          <span>100% Halal<br><small>Zertifiziert</small></span>
+        </div>
+      </div>
       <div class="about-text reveal">
-        <h2 class="section-title left">Über uns</h2>
+        <h2 class="section-title left">Unsere Geschichte</h2>
         <p data-about-text></p>
         <div class="features" id="featuresContainer"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BEWERTUNGEN ============ -->
+  <section class="section section-alt" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Was unsere Gäste sagen</h2>
+        <p class="section-subtitle">Über 500 Bewertungen — danke für euer Vertrauen!</p>
+      </div>
+      <div class="testimonials-wrap reveal">
+        <div class="testimonials-track" id="testimonialsTrack"></div>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn" id="sliderPrev" aria-label="Zurück">‹</button>
+        <div class="slider-dots" id="sliderDots"></div>
+        <button class="slider-btn" id="sliderNext" aria-label="Weiter">›</button>
       </div>
     </div>
   </section>
@@ -74,7 +121,10 @@
   <!-- ============ ÖFFNUNGSZEITEN ============ -->
   <section class="section" id="hours">
     <div class="container">
-      <h2 class="section-title reveal">Öffnungszeiten</h2>
+      <div class="section-header reveal">
+        <h2 class="section-title">Öffnungszeiten</h2>
+        <p class="section-subtitle">Wir freuen uns auf deinen Besuch!</p>
+      </div>
       <div class="hours-card reveal" id="hoursContainer"></div>
     </div>
   </section>
@@ -85,16 +135,14 @@
       <div class="contact-info reveal">
         <h2 class="section-title left">Kontakt</h2>
         <ul class="contact-list">
-          <li><span class="contact-icon">📍</span> <span data-address></span></li>
-          <li><span class="contact-icon">📞</span> <a data-phone-link></a></li>
-          <li><span class="contact-icon">✉️</span> <a data-email-link></a></li>
+          <li><span class="contact-icon">📍</span><span data-address></span></li>
+          <li><span class="contact-icon">📞</span><a data-phone-link></a></li>
+          <li><span class="contact-icon">✉️</span><a data-email-link></a></li>
         </ul>
-        <!-- Karten-Platzhalter: hier später eine Google-Maps-Einbettung einfügen -->
-        <div class="map-placeholder">🗺 Karte / Standort einbetten</div>
+        <div class="map-placeholder">🗺 Hier Google Maps einbetten</div>
       </div>
-
       <div class="contact-form-wrap reveal">
-        <h3>Schreib uns eine Nachricht</h3>
+        <h3>Schreib uns</h3>
         <form id="contactForm" class="contact-form">
           <input type="text" name="name" placeholder="Dein Name" required>
           <input type="email" name="email" placeholder="Deine E-Mail" required>
@@ -108,32 +156,53 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <div class="logo" data-site-name>Döner Palast</div>
-        <p class="footer-slogan" data-slogan></p>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="logo footer-logo"><span data-site-name>Döner Palast</span></div>
+        <p data-slogan class="footer-slogan"></p>
+        <div class="footer-social" id="footerSocial"></div>
       </div>
-      <div class="footer-social" id="footerSocial"></div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <a href="#menu">Speisekarte</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#about">Über uns</a>
+        <a href="#hours">Öffnungszeiten</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Kontakt</h4>
+        <p data-address></p>
+        <a data-phone-link></a><br>
+        <a data-email-link></a>
+      </div>
     </div>
-    <p class="copyright">© <span id="year"></span> <span data-site-name>Döner Palast</span>. Alle Rechte vorbehalten.</p>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> <span data-site-name>Döner Palast</span>. Alle Rechte vorbehalten.</p>
+    </div>
   </footer>
 
-  <!-- ============ CHAT-WIDGET (FAQ-Bot) ============ -->
+  <!-- ============ CHAT-WIDGET ============ -->
   <button class="chat-toggle" id="chatToggle" aria-label="Chat öffnen">💬</button>
   <div class="chat-panel" id="chatPanel" aria-hidden="true">
     <div class="chat-header">
-      <span>Fragen? Wir helfen! 🥙</span>
+      <div class="chat-header-info">
+        <div class="chat-avatar">🥙</div>
+        <div>
+          <strong>Döner Palast</strong>
+          <span class="chat-status">● Online</span>
+        </div>
+      </div>
       <button class="chat-close" id="chatClose" aria-label="Chat schließen">✕</button>
     </div>
     <div class="chat-messages" id="chatMessages"></div>
     <div class="chat-quick" id="chatQuick"></div>
     <form class="chat-input" id="chatForm">
-      <input type="text" id="chatText" placeholder="Schreib deine Frage..." autocomplete="off">
+      <input type="text" id="chatText" placeholder="Deine Frage..." autocomplete="off">
       <button type="submit" aria-label="Senden">➤</button>
     </form>
   </div>
 
-  <!-- Konfiguration zuerst, dann Logik -->
   <script src="config.js"></script>
   <script src="js/script.js"></script>
 </body>
