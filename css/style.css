@@ -379,8 +379,8 @@ img { max-width: 100%; display: block; }
   animation: cardIn 0.4s cubic-bezier(.4,0,.2,1) both;
 }
 @keyframes cardIn {
-  from { opacity: 0; transform: translateY(20px) scale(0.97); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+  from { transform: translateY(20px) scale(0.97); }
+  to   { transform: translateY(0) scale(1); }
 }
 .menu-card.hiding {
   animation: cardOut 0.3s cubic-bezier(.4,0,.2,1) both;
@@ -949,6 +949,15 @@ img { max-width: 100%; display: block; }
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Bewegung reduzieren (Bedienungshilfen iOS/Android) */
+@media (prefers-reduced-motion: reduce) {
+  .menu-card  { animation: none; }
+  .reveal     { opacity: 1; transform: none; transition: none; }
+  .reveal-fast { opacity: 1; animation: none; }
+  .hero-bg-anim { animation: none; }
+  .scroll-arrow { animation: none; }
 }
 
 /* ============ RESPONSIV ============ */
