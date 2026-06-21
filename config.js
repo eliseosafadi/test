@@ -5,7 +5,7 @@
    Farben werden in css/style.css ganz oben (:root) eingestellt.
    ===================================================================== */
 
-const SITE_CONFIG = {
+window.SITE_CONFIG = {
 
   /* --- Allgemeine Infos --- */
   name: "Döner Palast",
