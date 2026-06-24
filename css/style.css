@@ -124,6 +124,8 @@ img { max-width: 100%; display: block; }
   transition: color var(--transition);
 }
 .nav-links a:hover { color: var(--color-text); }
+.nav-links a:focus { outline: none; }
+.nav-links a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; border-radius: 3px; }
 .nav-links a:not(.btn)::after {
   content: '';
   position: absolute;
@@ -134,8 +136,10 @@ img { max-width: 100%; display: block; }
   transition: width var(--transition);
 }
 .nav-links a:not(.btn):hover::after { width: 100%; }
-.nav-links a.nav-active { color: var(--color-accent); }
+.nav-links a.nav-active { color: var(--color-text); }
 .nav-links a.nav-active::after { width: 100%; }
+.nav-links a.btn-call { color: #ffffff; font-weight: 700; }
+.nav-links a.btn-call:hover { color: #ffffff; }
 .nav-cta { padding: 0.55rem 1.3rem; font-size: 0.88rem; }
 
 .burger {

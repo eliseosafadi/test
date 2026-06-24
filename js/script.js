@@ -261,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks.classList.remove('open');
       burger.classList.remove('open');
       burger.setAttribute('aria-expanded', false);
+      setTimeout(() => link.blur(), 50);
     });
   });
 
