@@ -135,7 +135,9 @@ img { max-width: 100%; display: block; }
   border-radius: 2px;
   transition: width var(--transition);
 }
-.nav-links a:not(.btn):hover::after { width: 100%; }
+@media (hover: hover) {
+  .nav-links a:not(.btn):hover::after { width: 100%; }
+}
 .nav-links a.nav-active { color: var(--color-text); }
 .nav-links a.nav-active::after { width: 100%; }
 .nav-links a.btn-call { color: #ffffff; font-weight: 700; }
