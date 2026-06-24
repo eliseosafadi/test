@@ -21,10 +21,11 @@
       </button>
       <nav class="nav-links" id="navLinks">
         <a href="#menu">Speisekarte</a>
-        <a href="#gallery">Galerie</a>
-        <a href="#about">Über uns</a>
+        <a href="#gallery">Über uns</a>
+        <a href="#hours">Öffnungszeiten</a>
+        <a href="#anfahrt">Anfahrt</a>
         <a href="#contact">Kontakt</a>
-        <a href="#contact" class="nav-cta btn btn-primary">Jetzt anrufen</a>
+        <a href="tel:" class="nav-cta btn btn-call" data-phone-link>Jetzt anrufen</a>
       </nav>
     </div>
   </header>
@@ -46,17 +47,10 @@
         <a href="#contact" class="btn btn-outline btn-lg" data-phone-link>Jetzt anrufen</a>
       </div>
     </div>
-    <div class="hero-scroll-hint">
+    <button class="hero-scroll-hint" id="scrollHint" aria-label="Zur nächsten Sektion scrollen">
       <span>Scroll</span>
       <div class="scroll-arrow"></div>
-    </div>
-  </section>
-
-  <!-- ============ STATISTIKEN ============ -->
-  <section class="stats-section" id="stats">
-    <div class="container">
-      <div class="stats-grid" id="statsGrid"></div>
-    </div>
+    </button>
   </section>
 
   <!-- ============ SPEISEKARTE ============ -->
@@ -129,6 +123,38 @@
     </div>
   </section>
 
+  <!-- ============ ANFAHRT ============ -->
+  <section class="section section-alt" id="anfahrt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Anfahrt</h2>
+        <p class="section-subtitle">Wir freuen uns auf deinen Besuch!</p>
+      </div>
+      <div class="anfahrt-wrap">
+        <div class="anfahrt-map-wrap reveal">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=10.315%2C53.869%2C10.355%2C53.889&layer=mapnik&marker=53.8792%2C10.335"
+            title="Karte: Döner Palast Standort"
+            loading="lazy">
+          </iframe>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Segeberger+Str.+29%2C+23617+Stockelsdorf"
+             target="_blank" rel="noopener" class="anfahrt-map-overlay" aria-label="Route in Google Maps starten">
+            <div class="anfahrt-overlay-badge">📍 Route starten</div>
+          </a>
+        </div>
+        <div class="anfahrt-info reveal">
+          <h3>So findest du uns</h3>
+          <p class="anfahrt-address" data-address></p>
+          <p class="anfahrt-hint">Parkplätze direkt vor dem Laden vorhanden.</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Segeberger+Str.+29%2C+23617+Stockelsdorf"
+             target="_blank" rel="noopener" class="btn btn-primary">
+            📍 Route in Google Maps starten
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ KONTAKT ============ -->
   <section class="section section-alt" id="contact">
     <div class="container contact-grid">
@@ -165,9 +191,9 @@
       <div class="footer-links">
         <h4>Navigation</h4>
         <a href="#menu">Speisekarte</a>
-        <a href="#gallery">Galerie</a>
-        <a href="#about">Über uns</a>
+        <a href="#gallery">Über uns</a>
         <a href="#hours">Öffnungszeiten</a>
+        <a href="#anfahrt">Anfahrt</a>
         <a href="#contact">Kontakt</a>
       </div>
       <div class="footer-contact">

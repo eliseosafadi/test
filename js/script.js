@@ -25,19 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ---------- 2. Statistiken ---------- */
-  const statsGrid = document.getElementById('statsGrid');
-  cfg.stats.forEach(s => {
-    const card = document.createElement('div');
-    card.className = 'stat-card reveal';
-    card.innerHTML = `
-      <div class="stat-icon">${s.icon}</div>
-      <div class="stat-number" data-target="${s.number}" data-suffix="${s.suffix}">0${s.suffix}</div>
-      <div class="stat-label">${s.label}</div>`;
-    statsGrid.appendChild(card);
-  });
-
-  /* ---------- 3. Speisekarte + Tabs ---------- */
+  /* ---------- 2. Speisekarte + Tabs ---------- */
   const menuTabs = document.getElementById('menuTabs');
   const menuGrid = document.getElementById('menuGrid');
   let activeCategory = cfg.menu[0].category;
@@ -206,11 +194,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- 9. Navigation ---------- */
   const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 40);
-  });
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
+
+  /* Sanfter Scroll mit Ease-In-Out-Cubic */
+  const smoothScrollTo = (targetY, duration) => {
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    const startTime = performance.now();
+    const ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const step = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      window.scrollTo(0, startY + distance * ease(progress));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  /* Scroll-Pfeil klickbar */
+  const scrollHint = document.getElementById('scrollHint');
+  if (scrollHint) {
+    scrollHint.addEventListener('click', () => {
+      const target = document.getElementById('menu');
+      if (target) smoothScrollTo(target.getBoundingClientRect().top + window.scrollY - 72, 950);
+    });
+  }
+
+  /* Scroll-Spy: aktiven Nav-Reiter hervorheben */
+  const spySections = [
+    { id: 'menu',        href: '#menu' },
+    { id: 'gallery',     href: '#gallery' },
+    { id: 'about',       href: '#gallery' },
+    { id: 'testimonials',href: '#gallery' },
+    { id: 'hours',       href: '#hours' },
+    { id: 'anfahrt',     href: '#anfahrt' },
+    { id: 'contact',     href: '#contact' },
+  ];
+  const heroEl = document.getElementById('hero');
+
+  const updateScrollSpy = () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+    const heroBottom = heroEl ? heroEl.offsetTop + heroEl.offsetHeight : 0;
+    const spyLinks = navLinks.querySelectorAll('a:not(.btn-call)');
+    if (window.scrollY < heroBottom - 140) {
+      spyLinks.forEach(a => a.classList.remove('nav-active'));
+      return;
+    }
+    let activeHref = null;
+    spySections.forEach(s => {
+      const el = document.getElementById(s.id);
+      if (!el) return;
+      if (el.getBoundingClientRect().top <= window.innerHeight * 0.5) activeHref = s.href;
+    });
+    spyLinks.forEach(a => a.classList.toggle('nav-active', a.getAttribute('href') === activeHref));
+  };
+
+  window.addEventListener('scroll', updateScrollSpy, { passive: true });
+
   burger.addEventListener('click', () => {
     const open = navLinks.classList.toggle('open');
     burger.classList.toggle('open', open);
@@ -234,32 +274,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => success.classList.remove('show'), 5000);
   });
 
-  /* ---------- 11. Scroll-Animationen + Zähler ---------- */
-  const countersDone = new Set();
+  /* ---------- 11. Scroll-Animationen ---------- */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      const el = entry.target;
-      el.classList.add('visible');
-
-      const counter = el.querySelector('[data-target]');
-      if (counter && !countersDone.has(counter)) {
-        countersDone.add(counter);
-        const target = parseInt(counter.dataset.target);
-        const suffix = counter.dataset.suffix || '';
-        const duration = 1800;
-        const step = Math.ceil(target / (duration / 16));
-        let current = 0;
-        const tick = () => {
-          current = Math.min(current + step, target);
-          counter.textContent = current.toLocaleString('de-DE') + suffix;
-          if (current < target) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-      }
-      observer.unobserve(el);
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.15 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 

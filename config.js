@@ -14,21 +14,13 @@ window.SITE_CONFIG = {
 
   phone: "+49 123 456789",
   email: "hallo@doener-palast.de",
-  address: "Musterstraße 12, 12345 Musterstadt",
+  address: "Segeberger Str. 29, 23617 Stockelsdorf",
 
   social: {
     instagram: "#",
     facebook: "#",
     tiktok: "#"
   },
-
-  /* --- Statistiken (Zahlen zählen beim Einblenden hoch) --- */
-  stats: [
-    { number: 15,    suffix: "+",  label: "Jahre Erfahrung",       icon: "🏆" },
-    { number: 10000, suffix: "+",  label: "Glückliche Gäste",      icon: "😊" },
-    { number: 100,   suffix: "%",  label: "Halal zertifiziert",    icon: "✅" },
-    { number: 7,     suffix: "×",  label: "Wöchentlich frisch",    icon: "🌿" }
-  ],
 
   /* --- Speisekarte ---------------------------------------------------
      badge-Optionen: "Beliebt" | "Vegetarisch" | "Scharf" | "Neu" | null
@@ -38,120 +30,68 @@ window.SITE_CONFIG = {
       category: "Döner",
       icon: "🥙",
       items: [
-        {
-          name: "Klassischer Döner",
-          desc: "Zartes Rindfleisch vom Spieß, knuspriges Fladenbrot, bunter Salat, Zwiebeln, Tomaten und unsere hausgemachte Joghurt-Knoblauch-Soße.",
-          price: "6,50 €",
-          badge: "Beliebt"
-        },
-        {
-          name: "Hähnchen Döner",
-          desc: "Saftiges Hähnchenfleisch, mariniert mit mediterranen Gewürzen, mit frischem Salat und Chili-Soße im warmen Fladenbrot.",
-          price: "6,50 €",
-          badge: null
-        },
-        {
-          name: "Döner Teller",
-          desc: "Großzügige Portion Döner-Fleisch mit Pommes oder Basmati-Reis, buntem Salat, Zwiebeln und zwei Soßen nach Wahl.",
-          price: "11,00 €",
-          badge: "Beliebt"
-        },
-        {
-          name: "Veggie Döner",
-          desc: "Gegrilltes Gemüse (Paprika, Zucchini, Aubergine), Falafel, frischer Salat und Hummus in warmem Fladenbrot.",
-          price: "6,00 €",
-          badge: "Vegetarisch"
-        }
+        { name: "Döner",                      desc: "Zartes Fleisch vom Spieß mit Salat und Soße im frischen Fladenbrot.",                             price: "7,50 €",        badge: "Beliebt" },
+        { name: "Döner mit Weißkäse",         desc: "Klassischer Döner mit extra cremigem Weißkäse, frischem Salat und Soße.",                        price: "8,00 €",        badge: null },
+        { name: "Super Döner",                desc: "Etwas mehr Fleisch — für den großen Hunger. Mit Salat und Soße.",                                 price: "8,00 €",        badge: null },
+        { name: "Mini Döner",                 desc: "Die kleine Variante — perfekt für zwischendurch.",                                                price: "6,50 €",        badge: null },
+        { name: "Döner Vegetarisch",          desc: "Gegrilltes Gemüse, Falafel, frischer Salat und Joghurt-Soße im Fladenbrot.",                     price: "6,50 €",        badge: "Vegetarisch" },
+        { name: "Döner Vegetarisch (Vollkorn)", desc: "Vegetarische Füllung im knusprigen Vollkornbrot — leicht und lecker.",                         price: "7,00 €",        badge: "Vegetarisch" },
+        { name: "Pomm Döner",                 desc: "Döner mit knusprigen Pommes Frites, Salat und Soße — alles in einem.",                           price: "8,00 €",        badge: null },
+        { name: "Dürüm Döner",               desc: "Saftiges Fleisch vom Spieß, eingerollt in dünnem Yufka-Teig mit Salat und Soße.",                price: "9,00 €",        badge: null }
       ]
     },
     {
       category: "Dürüm",
       icon: "🌯",
       items: [
-        {
-          name: "Dürüm Klassik",
-          desc: "Zartes Döner-Fleisch, eingerollt in dünnem Yufka-Teig mit frischem Salat, Tomaten und Joghurt-Soße.",
-          price: "7,00 €",
-          badge: "Beliebt"
-        },
-        {
-          name: "Dürüm Käse",
-          desc: "Döner-Fleisch mit extra geschmolzenem Käse, Salat und würziger Soße — kurz gegrillt für extra Knusprigkeit.",
-          price: "7,50 €",
-          badge: null
-        },
-        {
-          name: "Hähnchen Dürüm",
-          desc: "Saftiges Hähnchenfleisch, Eisbergsalat, rote Zwiebeln und Chili-Soße im gerollten Yufka.",
-          price: "7,00 €",
-          badge: null
-        },
-        {
-          name: "Veggie Dürüm",
-          desc: "Gegrilltes Gemüse, Falafel, Rucola und Hummus im zarten Yufka-Teig — leicht und lecker.",
-          price: "6,50 €",
-          badge: "Vegetarisch"
-        }
+        { name: "Dürüm mit Weißkäse",        desc: "Döner-Fleisch mit cremigem Weißkäse, Salat und Soße im zarten Yufka-Teig.",                      price: "9,50 €",        badge: "Beliebt" },
+        { name: "Dürüm Vegetarisch",          desc: "Gegrilltes Gemüse, Falafel und Joghurt-Soße im zarten Yufka-Teig.",                              price: "7,00 €",        badge: "Vegetarisch" },
+        { name: "Dürüm Vegetarisch (Vollkorn)", desc: "Vegetarische Füllung im Vollkorn-Yufka — leicht und lecker.",                                  price: "7,50 €",        badge: "Vegetarisch" }
+      ]
+    },
+    {
+      category: "Teller",
+      icon: "🍽️",
+      items: [
+        { name: "Döner Teller (mit Pommes)", desc: "Großzügige Portion Döner-Fleisch mit Pommes Frites, buntem Salat und Soße.",                      price: "12,00 €",       badge: "Beliebt" },
+        { name: "Döner Teller",              desc: "Döner-Fleisch mit Basmati-Reis, Salat und zwei Soßen nach Wahl.",                                 price: "12,00 €",       badge: null },
+        { name: "Döner Teller Spezial",      desc: "Döner-Fleisch mit Pommes, Weißkäse, buntem Salat und Soße — die volle Ladung.",                  price: "12,50 €",       badge: null },
+        { name: "Portion Dönerfleisch",      desc: "Pur gegrilltes Dönerfleisch vom Spieß — ohne Beilage.",                                           price: "10,00 €",       badge: null },
+        { name: "Große Portion Dönerfleisch", desc: "Extra große Portion frisch gegrilltes Dönerfleisch vom Spieß.",                                  price: "16,00 €",       badge: null }
+      ]
+    },
+    {
+      category: "Türk. Pizza",
+      icon: "🍕",
+      items: [
+        { name: "Türkische Pizza (klein)",    desc: "Hauchdünnes Lahmacun mit würzigem Hackfleisch — die kleine Variante.",                           price: "3,00 €",        badge: null },
+        { name: "Türkische Pizza",            desc: "Klassisches Lahmacun mit würzigem Hackfleisch, Tomaten und Petersilie.",                          price: "6,50 €",        badge: "Beliebt" },
+        { name: "Türkische Pizza mit Salat",  desc: "Lahmacun mit frischem bunten Salat, Zwiebeln und Joghurt-Soße.",                                 price: "7,00 €",        badge: null },
+        { name: "Türkische Pizza Spezial",    desc: "Üppig belegtes Lahmacun mit Hackfleisch, Käse und frischem Gemüse.",                             price: "9,00 €",        badge: null },
+        { name: "Türk. Pizza Fleisch & Käse", desc: "Lahmacun mit Dönerfleisch, geschmolzenem Käse und hausgemachter Soße.",                          price: "9,50 €",        badge: null }
+      ]
+    },
+    {
+      category: "Falafel & Chicken",
+      icon: "🧆",
+      items: [
+        { name: "Chicken Nuggets",            desc: "Knusprige Hähnchenstreifen, goldbraun frittiert, mit Dip nach Wahl.",                            price: "4,50 €",        badge: null },
+        { name: "Chicken Nuggets (groß)",     desc: "Große Portion knuspriger Hähnchenstreifen mit Pommes Frites und Soße.",                          price: "7,00 €",        badge: null },
+        { name: "Falafel im Brot",            desc: "Hausgemachte Falafel im frischen Fladenbrot mit Joghurt-Dip.",                                   price: "3,00 €",        badge: "Vegetarisch" },
+        { name: "Falafel Dürüm",             desc: "Knusprige Falafel-Bällchen im Yufka-Teig mit Salat und Hummus.",                                 price: "5,00 €",        badge: "Vegetarisch" },
+        { name: "Falafel Teller",             desc: "Hausgemachte Kichererbsen-Bällchen mit Salat, Hummus und Joghurt-Dip.",                          price: "7,00 €",        badge: "Vegetarisch" }
       ]
     },
     {
       category: "Beilagen",
       icon: "🍟",
       items: [
-        {
-          name: "Pommes Frites",
-          desc: "Goldgelb & knusprig frittiert, mit Ketchup und Mayonnaise.",
-          price: "3,00 €",
-          badge: null
-        },
-        {
-          name: "Türkische Pizza",
-          desc: "Hauchdünnes Lahmacun mit würzigem Hackfleisch, frischem Salat und Zitronen.",
-          price: "4,50 €",
-          badge: "Beliebt"
-        },
-        {
-          name: "Falafel (6 Stück)",
-          desc: "Hausgemachte Kichererbsen-Bällchen, goldbraun frittiert, mit Joghurt-Dip.",
-          price: "4,00 €",
-          badge: "Vegetarisch"
-        },
-        {
-          name: "Cacık",
-          desc: "Türkischer Joghurt mit Gurke, Knoblauch, Minze und einem Schuss Olivenöl.",
-          price: "2,50 €",
-          badge: null
-        }
-      ]
-    },
-    {
-      category: "Getränke",
-      icon: "🥤",
-      items: [
-        {
-          name: "Ayran",
-          desc: "Erfrischendes türkisches Joghurtgetränk, leicht gesalzen — der perfekte Döner-Begleiter.",
-          price: "1,80 €",
-          badge: "Beliebt"
-        },
-        {
-          name: "Çay (Türkischer Tee)",
-          desc: "Kräftiger schwarzer Tee, im typischen Tulpenglas serviert.",
-          price: "1,50 €",
-          badge: null
-        },
-        {
-          name: "Softdrinks 0,33l",
-          desc: "Cola, Fanta, Sprite — eiskalt.",
-          price: "2,00 €",
-          badge: null
-        },
-        {
-          name: "Wasser 0,5l",
-          desc: "Still oder sprudelnd.",
-          price: "1,50 €",
-          badge: null
-        }
+        { name: "Börek (5 Stück)",            desc: "Hauchdünner Blätterteig gefüllt mit Schafskäse und Petersilie — knusprig gebacken.",             price: "⚠️ Preis folgt", badge: null },
+        { name: "Pommes Frites (klein)",      desc: "Goldgelb & knusprig frittiert, mit Ketchup und Mayonnaise.",                                     price: "⚠️ Preis folgt", badge: null },
+        { name: "Pommes Frites",              desc: "Goldgelb & knusprig frittiert, mit Ketchup und Mayonnaise.",                                     price: "⚠️ Preis folgt", badge: null },
+        { name: "Pommes Frites (groß)",       desc: "Große Portion goldgelb frittierter Pommes, mit Ketchup und Mayonnaise.",                         price: "⚠️ Preis folgt", badge: null },
+        { name: "Currywurst",                 desc: "Saftige Currywurst mit würziger Currysauce und Brötchen.",                                       price: "⚠️ Preis folgt", badge: null },
+        { name: "Currywurst mit Pommes",      desc: "Currywurst mit würziger Currysauce und einer Portion knuspriger Pommes.",                        price: "⚠️ Preis folgt", badge: null }
       ]
     }
   ],
